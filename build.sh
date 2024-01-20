@@ -1,0 +1,6 @@
+
+
+cd bin
+
+make
+
