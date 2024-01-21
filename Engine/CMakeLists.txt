@@ -5,7 +5,8 @@
 
 #XENON ENGINE SOURCES
 set(LIB_SOURCES 
-    src/test.c
+    src/core/Log/Log.c
+
 )
 
 set(CMAKE_C_STANDARD 11)
