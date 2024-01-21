@@ -8,6 +8,13 @@
 #include <stdio.h>
 #include <time.h>
 
+#include "../Assert/Asserts.h"
+
+
+void report_assertion_failure(const char* expression, const char* message, const char* file, i32 line) {
+    log_output(LOG_LEVEL_FATAL, "Assertion Failure: %s, message: '%s', in file: %s, line: %d\n", expression, message, file, line);
+}
+
 b8 initalize_logging() {
     // TODO Create log file
     return TRUE;
@@ -33,7 +40,7 @@ static void format_time(char* out, struct tm* timeInfo) {
 }
 
 //Outputs log message to stdout
-LAPI void log_output(log_level level, const char* message, ...) {
+void log_output(log_level level, const char* message, ...) {
     const char* log_level_strings[6] = {"[FATAL]: ", "[ERROR]: ", "[WARN]: ", "[INFO]: ", "[DEBUG]: ", "[TRACE]: "};
     const char* log_level_colors[6] = {"\033[1;31m", "\033[1;31m", "\033[1;33m", "\033[1;37m", "\033[1;36m", "\033[1;32m"};
     const char* color_escape_code = "\033[0m";
