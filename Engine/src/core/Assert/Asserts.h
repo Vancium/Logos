@@ -1,6 +1,6 @@
 #pragma once
 
-#include "defines.h"
+#include "../../defines.h"
 
 //Disable assertions
 #define LASSERTIONS_ENABLED
