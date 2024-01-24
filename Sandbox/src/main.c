@@ -1,24 +1,17 @@
-#include <platform/platform.h>
 #include <core/Log/Log.h>
+#include <core/Application/Application.h>
 
 int main(void) {
 
-   LFATAL("Fatal: %f", 3.14); 
-   LERROR("Error: %f", 3.14); 
-   LWARN("Warn: %f", 3.14); 
-   LDEBUG("Debug: %f", 3.14); 
-   LINFO("Info: %f", 3.14); 
-   LTRACE("Trace: %f", 3.14); 
+    application_config config;
+    config.start_y_pos = 100;
+    config.start_x_pos = 100;
+    config.start_width = 1280;
+    config.start_height = 720;
+    config.name = "Logos Engine Sandbox";
 
-    platform_state state;
-
-    if (platform_create(&state, "Logos Engine Testbed", 100, 100, 1280, 720)) {
-        while(TRUE) {
-           platform_pump_messages(&state); 
-        }
-    }
-
-    platform_destroy(&state);
+    application_create(&config);
+    application_run();
     
-     return 0;
+    return 0;
 }
