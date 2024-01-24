@@ -1,17 +1,14 @@
-
-#include "core/Log/Log.h"
-
-#include "platform/platform.h"
+#include <platform/platform.h>
+#include <core/Log/Log.h>
 
 int main(void) {
 
-    LFATAL("FATAL");
-    LERROR("ERROR")
-    LWARN("WARN");
-    LINFO("INFO");
-    LDEBUG("DEBUG");
-    LTRACE("TRACE");
-    
+   LFATAL("Fatal: %f", 3.14); 
+   LERROR("Error: %f", 3.14); 
+   LWARN("Warn: %f", 3.14); 
+   LDEBUG("Debug: %f", 3.14); 
+   LINFO("Info: %f", 3.14); 
+   LTRACE("Trace: %f", 3.14); 
 
     platform_state state;
 

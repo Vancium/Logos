@@ -1,12 +1,30 @@
+#!/bin/bash
+# Build script for rebuilding everything
+set echo on
+
+echo "Building everything..."
 
 
-cd bin
+pushd Engine
+source build.sh
+popd
 
-make
+ERRORLEVEL=$?
+if [ $ERRORLEVEL -ne 0 ]
+then
+echo "Error:"$ERRORLEVEL && exit
+fi
 
-cd ..
+pushd Sandbox
+source build.sh
+popd
+ERRORLEVEL=$?
+if [ $ERRORLEVEL -ne 0 ]
+then
+echo "Error:"$ERRORLEVEL && exit
+fi
 
-rm compile_commands.json
+echo "All assemblies built successfully."
 
-ln -s bin/compile_commands.json compile_commands.json
+
 
